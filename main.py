@@ -1,13 +1,15 @@
 import tkinter 
-from pytube import *
+import ttkbootstrap as ttk 
+from pytube import YouTube
 
 def Download(url):
     try:
-       yt = YouTube(url).streams.first().download()
+       yt = YouTube(url).streams.get_highest_resolution()
        print(yt.title)
-       print(yt.streams.filter(file_extension='mp4'))
-    except:
-        print("didn't work")
+       yt.download()
+    #    print(yt.streams)
+    except Exception as e:
+        print(e)
 
 url = input("import your link: \n")
 Download(url)
