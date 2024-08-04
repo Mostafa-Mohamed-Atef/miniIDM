@@ -1,13 +1,14 @@
 import tkinter 
 import ttkbootstrap as ttk 
-from pytube import YouTube
+from pytubefix import YouTube
 
 def Download(url):
     try:
-       yt = YouTube(url).streams.get_highest_resolution()
+       yt = YouTube(url)
+       yd = yt.streams.get_highest_resolution()
        print(yt.title)
-       yt.download()
-    #    print(yt.streams)
+       yd.download("/home/mostafa/programming/python/miniIDM/")
+       print('completed')
     except Exception as e:
         print(e)
 
