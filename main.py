@@ -22,7 +22,7 @@ def progress(stream, chunk, bytes_remaining):
     progress_bar.update(len(chunk))
 
 url = input("import your link: \n")
-# path = input("path: \n")
-path = "/home/mostafa/Downloads"
+path = input("path: \n")
+# path = "/home/mostafa/Downloads"
 yt = YouTube(url, on_progress_callback=progress)
 download(url)
